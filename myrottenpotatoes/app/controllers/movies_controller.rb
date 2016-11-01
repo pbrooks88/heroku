@@ -1,7 +1,9 @@
 # This file is app/controllers/movies_controller.rb
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
+    @movies = Movie.order(params[:sort_by])
+    @sort_column = params[:sort_by]
+    #redirect_to movie_path
   end
   
   def show
